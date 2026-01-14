@@ -1,103 +1,156 @@
- Task 1: Exploring and Visualizing the Iri
-
+Heart Disease Prediction – Machine Learning Project
+s
 🎯 Objective
 
-The objective of this task is to load, inspect, explore, and visualize the Iris dataset in order to understand its structure, feature distributions, and relationships between variables. This task demonstrates basic data exploration and visualization skills using Python.
+The objective of this project is to predict the presence of heart disease in patients using medical features. Two machine learning models — Logistic Regression and Decision Tree Classifier — are trained and evaluated to compare their performance.
 
 📊 Dataset Used
 
-Iris Dataset
+File Name: heart.csv
 
-Source: seaborn built-in dataset
+Target Column: HeartDisease
 
-Total Samples: 150
+1 → Presence of heart disease
 
-Total Columns: 5
+0 → No heart disease
 
-Features:
+Features: Medical and lifestyle attributes such as age, sex, chest pain type, ECG results, exercise angina, etc.
 
-sepal_length
-
-sepal_width
-
-petal_length
-
-petal_width
-
-Target:
-
-species
+⚠️ Ensure heart.csv is placed in the same folder before running the code.
 
 🛠️ Libraries Used
 
-pandas – for data loading and exploration
+pandas – data loading and manipulation
 
-matplotlib – for plotting and saving visualizations
+seaborn – visualizations and heatmaps
 
-seaborn – for dataset loading and advanced visualizations
+matplotlib – plotting graphs
+
+scikit-learn – machine learning models and evaluation
 
 🔍 Steps Performed
-1️⃣ Import Libraries
+1️⃣ Load Dataset
 
-All required Python libraries are imported for data handling and visualization.
+Dataset is loaded using pandas.read_csv
 
-2️⃣ Load Dataset
+First 5 rows are displayed
 
-The Iris dataset is loaded directly from Seaborn using:
+Missing values are checked
 
-sns.load_dataset('iris')
+2️⃣ Feature & Target Selection
 
-3️⃣ Explore Dataset
+Features (X): All columns except HeartDisease
 
-The following exploratory steps are performed:
+Target (y): HeartDisease
 
-Dataset shape (rows × columns)
+3️⃣ Handle Categorical Variables
 
-Column names
+Categorical features are converted into numeric form using one-hot encoding:
 
-First 5 rows preview
+Sex
 
-Data types and missing values
+ChestPainType
 
-Descriptive statistics (mean, min, max, etc.)
+RestingECG
 
-📈 Visualizations Created
-🔹 Scatter Plot
+ExerciseAngina
 
-Sepal Length vs Sepal Width
+ST_Slope
 
-Colored by species to observe class separation
+This ensures compatibility with machine learning models.
 
-Saved as: scatter_plot.png
+4️⃣ Train–Test Split
 
-🔹 Histograms
+Dataset is split into:
 
-Distribution of all numerical features
+80% training data
 
-Helps understand spread and frequency
+20% testing data
 
-Saved as: feature_histograms.png
+random_state=42 is used for reproducibility
 
-🔹 Box Plot
+5️⃣ Feature Scaling
 
-Detects potential outliers across features
+StandardScaler is applied
 
-Saved as: box_plot.png
+Required for Logistic Regression to improve performance
+
+🤖 Models Implemented
+🔹 Logistic Regression
+
+Trained on scaled features
+
+Predictions made on test data
+
+Evaluated using:
+
+Accuracy
+
+Classification Report
+
+Confusion Matrix
+
+ROC Curve
+
+Feature Importance
+
+🔹 Decision Tree Classifier
+
+Trained on the same dataset
+
+Performance compared using:
+
+Accuracy
+
+Classification Report
+
+📈 Model Evaluation & Visualization
+✅ Accuracy Score
+
+Shows how many predictions were correct.
+
+📊 Classification Report
+
+Includes:
+
+Precision
+
+Recall
+
+F1-score
+
+Support
+
+🔲 Confusion Matrix
+
+Visualizes True Positives, True Negatives, False Positives, and False Negatives
+
+Displayed using a Seaborn heatmap
+
+📉 ROC Curve
+
+Shows model’s ability to distinguish between classes
+
+AUC (Area Under Curve) indicates overall performance
+
+⭐ Feature Importance
+
+Based on Logistic Regression coefficients
+
+Displays which medical features most influence heart disease prediction
 
 📌 Key Insights
 
-The dataset contains 150 samples and no missing values
+Logistic Regression performs well for binary classification problems
 
-Species show clear separation based on feature dimensions
+Decision Tree provides an alternative non-linear approach
 
-Feature distributions are mostly well-balanced
+Feature scaling significantly improves Logistic Regression results
 
-Box plots help identify possible outliers
+ROC curve and AUC give a strong measure of model reliability
 
-The Iris dataset is ideal for learning data exploration and visualization
-
+Feature importance helps understand medical risk factors
 
 ✅ Conclusion
 
-This task successfully demonstrates basic exploratory data analysis (EDA) using Python. It covers dataset inspection, statistical analysis, and multiple visualization techniques, making it a strong foundation for further machine learning tasks.
-
+This project demonstrates a complete binary classification pipeline, including preprocessing, model training, evaluation, and visualization. It provides a strong foundation for healthcare-related machine learning applications.
